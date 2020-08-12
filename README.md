@@ -20,7 +20,7 @@ Thus ascension becomes the reform or transform, the goal of the islanders, if th
 
 Recognizing ascension in others is a judgment call that requires the services of individuals capable of fourth and preferably fifth dimensional consciousness. These individuals would form a judgment council. The role of the council would be to monitor the islanders for the purpose of nominating an islander for an interview. After the interview the council would vote on whether to approve the islander's freedom. The interview process would be a special event and streamed live, where the islander is removed from the island and delivered to sit in front of the council. The council would then internally conduct the interview using their gift's bestowed upon them by the Creator.
 
-Islanders would also be able to have visitors stay on the island with them indefinitely. In addition, screened volunteers would also be able to come and go onto the island. All would be aware that the island is a law unto itself. Thus murder and assault are not crimes on the island, or at least, are not prosecuted by the external authority.
+Islanders would also be able to have visitors stay on the island with them indefinitely. In addition, screened volunteers would also be able to come and go onto the island. All would be aware that the island is a law unto itself. Thus murder and assault would not crimes on the island, or at least, would not prosecuted by the external authority.
 
 Islanders would not be allowed to be gifted with electronic technology or weapons other than those that have been created on the island. The islanders would be enabled to create their own way of life and develop a culture as they see fit.
 
