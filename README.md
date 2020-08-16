@@ -1,4 +1,4 @@
-# Ascension Island Detainment
+# Ascension Island Detainment (AID)
 
 This is an idea for detainment or containment of criminals that commit murder and unprovoked aggravated assault. The author views other crimes as lesser offenses and not part of the scope of this project.
 
@@ -23,6 +23,12 @@ Recognizing ascension in others is a judgment call that requires the services of
 Islanders would also be able to have visitors stay on the island with them indefinitely. In addition, screened volunteers would also be able to come and go onto the island. All would be aware that the island is a law unto itself. Thus murder and assault would not crimes on the island, or at least, would not prosecuted by the external authority.
 
 Islanders would not be allowed to be gifted with electronic technology or weapons other than those that have been created on the island. The islanders would be enabled to create their own way of life and develop a culture as they see fit.
+
+Live streaming the events on the island would create followers that would want to support or punish an islander. A follower could reward an islander by making financial donations linked to an islander's needs, such as purchasing supply donations, or for funding a personal account. This account would be sort of a trust fund that would be held until an islander was either released and given to the former islander, or assumed by AID when the islander died.
+
+Tracking an islander would be a neccessity, so a chip implant or body tatoo could serve this purpose.
+
+Communicating with islanders would be also neccessary. If a volunteer joined in the population of the island, then they could serve as a liason between the islanders and the authority/security.
 
 There could potentially be multiple islands used for detainment if an island was to become over-crowded.
 
