@@ -1,6 +1,6 @@
 # Ascension Island Detainment (AID)
 
-This is an idea for detainment or containment of criminals that commit murder and unprovoked aggravated assault. The author views other crimes as lesser offenses and not part of the scope of this project.
+![Ascension Island Detainment](AID.png) This is an idea for detainment or containment of criminals that commit murder and unprovoked aggravated assault. The author views other crimes as lesser offenses and not part of the scope of this project.
 
 Ascension Island Detainment sorts these criminals into two groups that are detained by dropping them off on separate islands, an island for each type of criminal.
 
