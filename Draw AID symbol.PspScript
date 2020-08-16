@@ -1,0 +1,293 @@
+from PSPApp import *
+import math
+
+# color:
+BLACK = 0, 0, 0
+WHITE = 255, 255, 255
+BLUE = 0, 0, 255
+YELLOW = 255, 255, 0
+GREEN = 0, 138, 0
+
+# PSP:
+SILENT = {'ExecutionMode': App.Constants.ExecutionMode.Silent}
+GENERAL_SETTINGS = {'GeneralSettings': SILENT}
+
+BLEND ={
+    'BlendRangeGreen': (0,0,255,255,0,0,255,255),
+    'BlendRangeRed': (0,0,255,255,0,0,255,255),
+    'BlendRangeBlue': (0,0,255,255,0,0,255,255),
+    'BlendRangeGrey': (0,0,255,255,0,0,255,255)}
+
+# circle focus points:
+PROTON_RADIUS = 500
+ELECTRON_RADIUS = PROTON_RADIUS / 12
+LINE_WIDTH = 2
+DEGREE_24 = 0.418879
+DEGREE_12 = DEGREE_24 / 2
+DEGREE_72 = 1.25664
+TOP_POINT = 6.28319
+
+"""
+This script creates a Ascension Island Detention symbol.
+
+It is recommended that the symbol be saved with a
+a transparency enabled PNG type file.
+
+This script requires: Corel's PaintShop Pro v5+
+
+In order to run the script, place it in a PSP Script folder
+previously identified by File/Preferences/Program Locations.
+
+The script will run in the restricted mode.
+
+Run this script from the Toolbars/Script widget.
+"""
+
+
+def ScriptProperties():
+    return {
+        'Author': u'Charles Bartley',
+        'Copyright': u'GNU 3.0',
+        'Description': u'Draws an Ascension Island Detention symbol.',
+        'Host': u'PaintShop Pro',
+        'Host Version': u'15.00'}
+
+
+def draw_circle(radius, center, color):
+    """
+    Draws a vector circle.
+
+    radius : number
+        the radius of the circle
+
+    center : point
+        the center coordinate (x, y) point of the circle
+
+    line_color : color of the circle edge and fill color.
+
+    """
+    App.Do(Environment, 'CreateEllipseObject', {
+        'Antialias': True,
+        'MiterLimit': 15,
+        'Join': App.Constants.JointStyle.Miter,
+        'CreateAsVector': True,
+        'Fill': {
+            'Color': color,
+            'Pattern': None,
+            'Gradient': None,
+            'Texture': None,
+            'Art': None},
+
+        'LineStyle': None,
+        'LineWidth': 0,
+        'Stroke': None,
+        'ObjectName': 'Rotation',
+        'RadiusX': radius - .5,
+        'RadiusY': radius - .5,
+        'CenterX': center[0],
+        'CenterY': center[1],
+        'Matrix': None,
+        'Visibility': True,
+        'GeneralSettings': SILENT})
+
+
+def draw_line(a, b):
+    """
+    Draws a line between points a and b.
+    The vector layer must have been prepped with NewDrawingObject.
+
+    a : point
+    b : point
+    Points are a pair of floating point numbers representing x, y.
+    """
+    # Calculate the difference between point a and b:
+    d = (int(b[0] - a[0]), int(b[1] - a[1]))
+
+    # Draw the point:
+    App.Do(Environment, 'NodeEditOffset', {
+        'NodeEditOffsetPoint': d,
+        'NodeEditAddPoint': a,
+        'NodeEditNodeOffsetControlKeyState': False,
+        'NodeEditNodeOffsetShiftKeyState': False,
+        'NodeEditNodeOffsetAddNode': True,
+        'NodeEditNodeOffsetPart': 0,
+        'NodeEditNodeOffsetDoLine': True,
+        'NodeEditContinuous': False,
+        'GeneralSettings': SILENT})
+
+
+def get_point(angle, radius):
+    """
+    Returns a point the circle that corresponds to the rotation.
+
+    angle : float
+        the rotation angle.
+
+    radius : float
+        the radius of the circle.
+
+    Returns:
+        x : float
+        y : float
+        the point on the circle.
+    """
+    x = (math.sin(angle) * radius) + center_x
+    y = (math.cos(angle) * -radius) + center_y
+    return x, y
+
+
+def fill_star(point, color):
+    App.Do( Environment, 'Fill', {
+            'BlendMode': App.Constants.BlendMode.Normal,
+            'MatchMode': App.Constants.MatchMode.Color,
+            'Material': {
+                'Color': color,
+                'Pattern': None,
+                'Gradient': None,
+                'Texture': None,
+                'Art': None},
+
+            'UseForeground': True,
+            'Opacity': 100,
+            'Point': point,
+            'SampleMerged': False,
+            'Tolerance': 20,
+            'GeneralSettings': {
+                'ExecutionMode': App.Constants.ExecutionMode.Silent}
+            })
+
+
+def prep_for_drawing_line(line_color):
+    """
+    Prepare PSP to draw some vectors with a line_color attribute.
+
+    line_color : (r, g, b)
+        r, g, b are integers of color components.
+    """
+    App.Do(Environment, 'NewDrawingObject', {
+        'Antialias': True,
+        'MiterLimit': 15,
+        'Join': App.Constants.JointStyle.Miter,
+        'CreateAsVector': True,
+        'Fill': {
+            'Color': None,
+            'Pattern': None,
+            'Gradient': None,
+            'Texture': None,
+            'Art': None},
+
+        'LineStyle': {
+            'Name': u'',
+            'FirstCap': (u'Butt',7.21,7.21),
+            'LastCap': (u'Butt',1,1),
+            'FirstSegCap': None,
+            'LastSegCap': None,
+            'UseSegmentCaps': False,
+            'Segments': None},
+
+        'LineWidth': LINE_WIDTH,
+        'Stroke': {
+            'Color': line_color,
+            'Pattern': None,
+            'Gradient': None,
+            'Texture': None,
+            'Art': None},
+
+        'Path': None,
+        'ObjectName': u'Star Line',
+        'Visibility': True,
+        'GeneralSettings': SILENT})
+
+
+def Do(E):
+    """ This is the start of the script. """
+    global Environment
+    global image_size
+    global center_y, center_x
+
+    Environment = E
+    center_y = center_x = PROTON_RADIUS + ELECTRON_RADIUS + 2
+    image_size = PROTON_RADIUS * 2 + ELECTRON_RADIUS * 2 + 2
+
+    print center_x
+    print ELECTRON_RADIUS
+
+    App.Do(Environment, 'EnableOptimizedScriptUndo', GENERAL_SETTINGS)
+
+    # This forms the base layer:
+    App.Do(Environment, 'NewFile', {
+        'Width': image_size,
+        'Height': image_size,
+        'ColorDepth': App.Constants.Colordepth.SixteenMillionColor,
+        'DimensionUnits': App.Constants.DimensionType.Pixels,
+        'ResolutionUnits': App.Constants.ResolutionUnits.PixelsPerIn,
+        'Resolution': 200,
+        'FillMaterial': {
+            'Color': None,
+            'Pattern': None,
+            'Gradient': None,
+            'Texture': None,
+            'Art': None},
+
+        'Transparent': True,
+        'LayerType': App.Constants.NewLayerType.Raster,
+        'GeneralSettings': SILENT})
+
+    # Select document for drawing vectors:
+    App.Do(Environment, 'SelectDocument', {
+        'SelectedImage': 0,
+        'Strict': False,
+        'GeneralSettings': SILENT})
+
+    star_points = [0, 0, 0, 0, 0]
+    angle = TOP_POINT
+
+    for i in range(5):
+        star_points[i] = get_point(angle, PROTON_RADIUS)
+        angle += DEGREE_72
+
+    star_lines = [
+            (star_points[0], star_points[2]),
+            (star_points[1], star_points[3]),
+            (star_points[2], star_points[4]),
+            (star_points[4], star_points[1]),
+            (star_points[0], star_points[3])
+        ]
+
+    # Draw circle:
+    draw_circle(PROTON_RADIUS, (center_x, center_y), YELLOW)
+
+    # Draw lines:
+    prep_for_drawing_line(BLACK)
+
+    for i in star_lines:
+        j, k = i[0], i[1]
+        draw_line(j, k)
+
+    angle = DEGREE_72
+
+    # electrons:
+    for i in star_points:
+        draw_circle(ELECTRON_RADIUS, i, BLUE)
+
+        point = get_point(angle - DEGREE_12, PROTON_RADIUS)
+        draw_circle(int(ELECTRON_RADIUS * .66), point, BLUE)
+
+        point = get_point(angle - DEGREE_24, PROTON_RADIUS)
+        draw_circle(int(ELECTRON_RADIUS * .33), point, BLUE)
+
+        angle += DEGREE_72
+
+    draw_circle(ELECTRON_RADIUS, (center_x, center_y), BLUE)
+
+    # Fill star spokes:
+    angle = TOP_POINT
+
+    for i in range(5):
+        point = get_point(angle, PROTON_RADIUS / 2)
+        angle += DEGREE_72
+        fill_star(point, GREEN)
+
+    # Fill center:
+    point = get_point(TOP_POINT, PROTON_RADIUS / 4)
+    fill_star(point, (255, 150, 32))
