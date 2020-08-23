@@ -6,7 +6,7 @@ Ascension Island Detainment sorts these criminals into two groups that are detai
 
 The islanders are provided cyclically minimal basic supplies that they need to survive such as food, water, clothing, and shelter as needed. Potentially other supplies could be provided via donations and requests by the islanders. Electricity would not be provided to the island, but would not be hindered, and could potentially be developed on the island.
 
-The detainment security is composed of patrol boats and a multitude flying camera drones. Armed security staff would circle the island in the patrol boats, ensuring that the islanders do not escape the island. The camera drones would be managed and maintained by another ship or location that controls the movements of the drones ensuring that their feeds connect to the internet or a satellite-provided television network at all times.
+The detainment security is composed of patrol boats and a multitude of flying camera drones. Armed security staff would circle the island in the patrol boats, ensuring that the islanders do not escape the island. The camera drones would be managed and maintained by another ship or location that controls the movements of the drones ensuring that their feeds connect to the internet or a satellite-provided television network at all times.
 
 An island is continually recorded and streamed on live broadcasts via one or both of the previously mentioned networks. The purpose of this is two-fold:
 
